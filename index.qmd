@@ -1,0 +1,137 @@
+---
+title: "Pengaruh Ekspor Batubara Indonesia Jepang Terhadap Pertumbuhan PDB Indonesia"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Muhammad Ramadhani Syah Putra"
+date: 2024-12-28
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+
+![logo Politeknik APP Jakarta](poltekapp.jpg)
+
+## Pendahuluan
+
+### Latar belakang
+
+Ekspor batubara telah menjadi salah satu sektor penting dalam perdagangan internasional Indonesia. Sebagai salah satu negara penghasil batubara terbesar di dunia, Indonesia memainkan peran strategis dalam memenuhi kebutuhan energi global, termasuk Jepang, yang merupakan salah satu mitra dagang utama. Jepang, dengan perekonomian yang sangat bergantung pada energi impor, terus menjadi tujuan utama ekspor batubara Indonesia, terutama dalam mendukung kebutuhan energi untuk sektor industri dan pembangkit listrik.
+
+Kontribusi sektor ekspor terhadap Produk Domestik Bruto (PDB) Indonesia sangat signifikan, mengingat batubara menjadi salah satu komoditas ekspor utama yang mendatangkan devisa negara. Pendapatan dari ekspor batubara memberikan dampak langsung terhadap pertumbuhan ekonomi nasional melalui peningkatan penerimaan negara, penciptaan lapangan kerja, dan penguatan cadangan devisa. Selain itu, ekspor batubara juga memengaruhi stabilitas nilai tukar rupiah melalui transaksi perdagangan internasional.
+
+Namun, pengaruh ekspor batubara terhadap PDB tidak hanya bersifat langsung, tetapi juga dipengaruhi oleh faktor lain seperti fluktuasi harga batubara dunia, permintaan dari negara mitra seperti Jepang, dan kebijakan perdagangan internasional. Jepang sebagai pasar utama menjadi indikator penting dalam menilai bagaimana dinamika ekspor batubara berkontribusi pada pertumbuhan ekonomi Indonesia. Dengan tingginya permintaan Jepang terhadap batubara Indonesia, pengaruhnya terhadap PDB dapat menjadi tolok ukur penting dalam mengevaluasi hubungan perdagangan kedua negara.
+
+Oleh karena itu, kajian tentang pengaruh ekspor batubara Indonesia ke Jepang terhadap pertumbuhan PDB Indonesia menjadi penting. Analisis ini tidak hanya memberikan wawasan tentang dampak ekonomi secara makro, tetapi juga dapat menjadi dasar pengambilan kebijakan strategis untuk memaksimalkan potensi ekspor serta memperkuat struktur ekonomi Indonesia dalam menghadapi tantangan global.
+
+### Ruang lingkup
+
+Ruang lingkup pembahasan masalah sesuai dengan variable yang akan digunakan pada analisis kali ini, yaitu mengenai Pengaruh Ekspor Batubara Indonesia Jepang Terhadap Pertumbuhan PDB Indonesia. Data yang digunakan mencakup periode 11 tahun terakhir. Batasan masalah ini berperan membantu dalam mengidentifikasi masalah yang akan dibahas dan membatasi jangkauan proses yang dibahas.
+
+### Rumusan masalah
+
+1.  Apakah Ekspor batubara Indonesia ke Jepang mempengaruhi Pertumbuhan PDB Indonesia?
+2.  Bagaimana perkembangan ekspor batubara Indonesia ke Jepang dalam 11 Tahun Terakhir?
+
+### Tujuan dan manfaat penelitian
+
+Tujuan penelitian ini untuk mengetahui pengaruh ekspor batubara indonesia ke jepang terhadap pertumbuhan pdb dalam 11 tahun terakhir.
+
+Manfaat penelitian ini untuk menambah wawasan dan literatur tentang perdagangan internasional,khususnya ekspor batubara terhadap pertumbuhan PDB.
+
+### Package
+
+Ini tidak wajib ada di tulisan anda tapi anda dapat menunjukkan Packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+library(WDI) 
+library (kableExtra)
+library("dplyr")
+```
+
+## Studi pustaka
+
+Menurut Harrod-Domar, perlu adanya pembentukan modal atau investasi untuk mencapai pertumbuhan ekonomi yang teguh (steady growth ) . Semakin banyak modal maka produksi barang dan jasa juga semakin banyak.
+
+## Metode penelitian
+
+### Data
+
+| Tahun | Ekspor |      GDP |
+|------:|-------:|---------:|
+|  2012 | 3558.9 | 3632.273 |
+|  2013 | 3225.1 | 3566.603 |
+|  2014 | 2593.5 | 3441.068 |
+|  2015 | 2033.7 | 3288.223 |
+|  2016 | 1980.1 | 3601.982 |
+|  2017 | 2505.9 | 3878.032 |
+|  2018 | 2786.9 | 3932.582 |
+|  2019 | 2333.1 | 4192.769 |
+|  2020 | 1695.7 | 3928.690 |
+|  2021 | 2540.8 | 4350.683 |
+|  2022 | 7174.7 | 4783.269 |
+|  2023 | 4761.9 | 4247.850 |
+
+penelitian ini menggunakan data ekspor FOB dan PDB indonesia 11 tahun terakhir.
+
+```{r}
+#| label: table1
+library("ggplot2")
+library("readxl")
+library("dplyr")
+dat<-read_excel('batubara indonesia.xlsx')
+ggplot(data =dat,aes(x=Ekspor,y=GDP)) +
+  geom_point(color="blue",size=2) + # setiap nambah command, selalu kasih tanda +
+  labs(title="tabel 1. Pengaruh Ekspor Batubara Indonesia Jepang Terhadap Pertumbuhan PDB Indonesia",
+       x="Ekspor",
+       y="GDP",
+       caption = "sumber: Badan Pusat Statistik") +
+  theme_classic()
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara hwy dan cty. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah hwy dan $x_t$ adalah GDP.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Dikarenakan saya menggunakan OLS, Pembahasan saya disini hanya menghubungkan hasil ekspor Indonesia dengan Jepang menggunakan nilai FOB.
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg<-lm(Ekspor~GDP,data=dat)
+summary(reg)
+```
+
+*Table Regresi Ekspor Batubara Indonesia Jepang terhadap peningkatan GDP*
+
+```{r}
+library(readxl)
+dat<-read_excel('batubara indonesia.xlsx')
+dat
+dat%>%kbl()%>%kable_styling()
+```
+
+## Kesimpulan
+
+Dari hasil regresi dapat dilihat bahwa setiap peningkatan 2.3025 unit ekspor, berhubungan dengan peningkatan GDP sebesar 1 unit.jadi,ekspor batubara indonesia ke jepang sangat memberikan dampak pada pdb Indonesia walaupun tidak terlalu signifikan.
+
+## Referensi
+
+TRADING ECONOMICS. (n.d.). *Indonesia - PDB per kapita \| 1960-2023 Data \| 2024-2026 Perkiraan*. https://id.tradingeconomics.com/indonesia/gdp-per-capita
+
+Indonesia, B. P. S. (n.d.). *Ekspor batu bara menurut negara tujuan utama, 2012-2023 - Tabel statistik*. Badan Pusat Statistik Indonesia. https://www.bps.go.id/id/statistics-table/1/MTAzNCMx/ekspor-batu-bara-menurut-negara-tujuan-utama--2012-2022.html
+
+*World Development Indicators \| DataBank*. (n.d.). https://databank.worldbank.org/indicator/NY.GDP.PCAP.CD/1ff4a498/Popular-Indicators#
